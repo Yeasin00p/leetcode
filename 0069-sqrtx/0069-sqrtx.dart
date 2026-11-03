@@ -1,26 +1,19 @@
 class Solution {
   int mySqrt(int x) {
-
-    if(x < 2) return x ;
-
-    int low = 1;
-    int high = x;
-    int ans = 1;
-
-    while (low<=high){
-        int mid = low + ((high - low)~/2);
-        final square = mid * mid;
-
-        if (square == x){
-            return mid;
-        }
-        else if(square < x){
-         ans = mid ;
-         low =mid +1;
-        }else{
-            high = mid -1;
-        }
+  if (x < 2){
+    return x;
+  }
+  int left = 1;
+  int right = x;
+  while(left <= right){
+    int mid = left + (right - left) ~/2;
+    int val = mid * mid;
+    if(val <= x){
+        left = mid +1;
+    }else{
+        right = mid -1;
     }
-    return ans;
+  }
+  return right;
   }
 }
